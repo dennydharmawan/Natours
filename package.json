@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.1",
     "parcel": "^1.12.4"
   },
   "devDependencies": {},
