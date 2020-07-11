@@ -1,0 +1,7 @@
+@function getCenteringWidth($span, $numPerRow, $gutter-horizontal) {
+  @return calc(
+    #{$span} * (
+        (100% - ((#{$numPerRow} - 1) * #{$gutter-horizontal})) / #{$numPerRow}
+      ) + ((#{$span} - 1) * #{$gutter-horizontal})
+  );
+}

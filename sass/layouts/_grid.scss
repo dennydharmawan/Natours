@@ -1,0 +1,52 @@
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+
+  @include clearFix;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tab-port) {
+    max-width: 80rem;
+    padding: 0 1rem;
+  }
+
+  @include respond(phone) {
+    max-width: 65rem;
+    padding: 0 1rem;
+  }
+
+  [class^="col-"] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+
+      @include respond(tab-port) {
+        margin-right: 0;
+      }
+    }
+
+    @include respond(tab-port) {
+      width: 100% !important;
+    }
+  }
+
+  $start: 1;
+  $end: 5;
+
+  @for $i from $start through $end {
+    @for $j from $start through $end {
+      .col-#{$i}-of-#{$j} {
+        width: getCenteringWidth($i, $j, $gutter-vertical);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,87 @@
+.popup {
+  width:100vw;
+  max-width: 100%;
+  margin: 0;
+  height:100vh;
+  background-color: transparentize($color-black, .15);
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 4000;
+  backdrop-filter: blur(10px);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+
+  &__content {
+    background-color: $color-grey-light-1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.5);
+    position: absolute;
+    width: 80%;
+    display: table;
+    border-radius: 3px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all .4s;
+  }
+
+  &__left {
+    width: 34%;
+    display: table-cell;
+  }
+
+  &__right {
+    width: 66%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__text {
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid $color-black;
+    hyphens: auto;
+
+  }
+
+  // Open states
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      top: 2.5rem;
+      right: 2.5rem;
+      position: absolute;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .2s;
+      font-size: 5rem;
+      line-height: .2;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.u-center-text {
+  text-align: center !important;
+}
+
+$start: 1;
+$end: 10;
+@for $counter from $start through $end {
+  .u-margin-bottom-#{$counter} {
+    margin-bottom: $counter * 1rem !important;
+  }
+}
+
+@for $counter from $start through $end {
+  .u-margin-top-#{$counter} {
+    margin-top: $counter * 1rem !important;
+  }
+}

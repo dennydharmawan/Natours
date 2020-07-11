@@ -1,0 +1,245 @@
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 52rem;
+  outline: 1px solid transparent;
+
+  // @media only screen and (hover:none)
+
+  &__side {
+    height: 52rem;
+    font-size: 2rem;
+
+    // combine back and front side
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    @include antialiasing;
+
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 1rem 1rem 8rem rgba($color-black, 0.5);
+    transition: transform 1s ease-in-out;
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  //// FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    background-position: center;
+    height: 23rem;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url("../img/nat-5.jpg");
+      background-blend-mode: color;
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        ),
+        url("../img/nat-6.jpg");
+      background-blend-mode: color;
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        ),
+        url("../img/nat-7.jpg");
+      background-blend-mode: color;
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: $color-white;
+    text-transform: uppercase;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    text-align: right;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem;
+    box-decoration-break: clone;
+    color: $color-white;
+    margin-bottom: 5px;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.75),
+        rgba($color-secondary-dark, 0.75)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.75),
+        rgba($color-primary-dark, 0.75)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.75),
+        rgba($color-tertiary-dark, 0.75)
+      );
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 2px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  // BACK SIDE STYLING
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price-box {
+    color: $color-white;
+  }
+
+  &__price-only {
+    font-size: 1.5rem;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 300;
+  }
+
+  @include respond(tab-port) {
+    position: relative;
+    height: auto;
+    margin-bottom: 5rem;
+    background-color: $color-white;
+    box-shadow: 1rem 1rem 8rem rgba($color-black, 0.5);
+    &__picture {
+      height: 35rem;
+    }
+
+    &__side {
+      position: relative;
+      height: auto;
+      font-size: 2rem;
+      width: 100%;
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: none;
+
+      &--back {
+        position: relative;
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+      transform: rotateY(0);
+    }
+
+    // BACK SIDE STYLING
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    &__price-box {
+      color: $color-white;
+    }
+
+    &__price-only {
+      font-size: 1.5rem;
+    }
+
+    &__price-value {
+      font-size: 6rem;
+      font-weight: 300;
+    }
+  }
+}
