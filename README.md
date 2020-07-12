@@ -1,6 +1,6 @@
 # Natours
 
-From Advanced css and sass course.
+from Advanced css and sass udemy course.
 
 * Pure HTML and CSS
 * Follows BEM methodology
